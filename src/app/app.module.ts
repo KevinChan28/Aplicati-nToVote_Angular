@@ -14,35 +14,28 @@ import {MatButtonModule} from '@angular/material/button';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HomeUserComponent } from './User/home-user/home-user.component';
-import { HttpClientModule } from '@angular/common/http';
+import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 import { CandidatoComponent } from './User/home-user/applicant/candidato/candidato.component';
 import { HomeFuncionarioComponent } from './funcionario/home-funcionario/home-funcionario.component';
 
 
 
-@NgModule({
-  declarations: [
-    AppComponent,
-    LoginComponent,
-    RegisterComponent,
-    HomeUserComponent,
-    CandidatoComponent,
-    HomeFuncionarioComponent,
-  ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    BrowserAnimationsModule,
-    MatSidenavModule,
-    MatCardModule,
-    MatInputModule,
-    MatButtonModule,
-    FormsModule,
-    ReactiveFormsModule,
-    MatSnackBarModule,
-    HttpClientModule
-  ],
-  providers: [],
-  bootstrap: [AppComponent]
-})
+@NgModule({ declarations: [
+        AppComponent,
+        LoginComponent,
+        RegisterComponent,
+        HomeUserComponent,
+        CandidatoComponent,
+        HomeFuncionarioComponent,
+    ],
+    bootstrap: [AppComponent], imports: [BrowserModule,
+        AppRoutingModule,
+        BrowserAnimationsModule,
+        MatSidenavModule,
+        MatCardModule,
+        MatInputModule,
+        MatButtonModule,
+        FormsModule,
+        ReactiveFormsModule,
+        MatSnackBarModule], providers: [provideHttpClient(withInterceptorsFromDi())] })
 export class AppModule { }
