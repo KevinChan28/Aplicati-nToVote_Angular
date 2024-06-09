@@ -17,9 +17,12 @@ import { HomeUserComponent } from './User/home-user/home-user.component';
 import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 import { CandidatoComponent } from './User/home-user/applicant/candidato/candidato.component';
 import { HomeFuncionarioComponent } from './funcionario/home-funcionario/home-funcionario.component';
+import * as PlotlyJS from 'plotly.js-dist-min';
+import { PlotlyModule } from 'angular-plotly.js';
 
+import { GraficaPastelComponent } from './funcionario/home-funcionario/graficas/grafica-pastel/grafica-pastel.component';
 
-
+PlotlyModule.plotlyjs = PlotlyJS;
 @NgModule({ declarations: [
         AppComponent,
         LoginComponent,
@@ -27,8 +30,10 @@ import { HomeFuncionarioComponent } from './funcionario/home-funcionario/home-fu
         HomeUserComponent,
         CandidatoComponent,
         HomeFuncionarioComponent,
+        GraficaPastelComponent
     ],
-    bootstrap: [AppComponent], imports: [BrowserModule,
+    bootstrap: [AppComponent], 
+    imports: [BrowserModule,
         AppRoutingModule,
         BrowserAnimationsModule,
         MatSidenavModule,
@@ -37,5 +42,6 @@ import { HomeFuncionarioComponent } from './funcionario/home-funcionario/home-fu
         MatButtonModule,
         FormsModule,
         ReactiveFormsModule,
+        PlotlyModule,
         MatSnackBarModule], providers: [provideHttpClient(withInterceptorsFromDi())] })
 export class AppModule { }

@@ -47,8 +47,8 @@ login(){
             });
         } 
     });*/
-        this.router.navigate(['/homeUser']);
-      
+        this.router.navigate(['/homeFuncionario']);
+        
 
 }
 
