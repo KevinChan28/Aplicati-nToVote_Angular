@@ -1,0 +1,5 @@
+<div class="candidato" [class.selected]="isSelected" (click)="select()">
+    <img [src]="candidato.photo" alt="{{ candidato.name }}">
+    <h3>{{ candidato.name }}</h3>
+    <p>{{ candidato.team }}</p>
+  </div>

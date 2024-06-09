@@ -1,0 +1,46 @@
+<mat-card>
+    <mat-card-title>Registro</mat-card-title>
+   
+    <mat-card-content> 
+      <button mat-raised-button class="green-button create-account-button" (click)="goLogin()">Volver</button>
+      <form [formGroup]="registerForm" (ngSubmit)="register()">
+        <div class="form-row">
+          <mat-form-field >
+            <input type="text" formControlName="curp" matInput placeholder="CURP" (input)="onCurpInput($event)" class="curp-input">
+            <mat-error *ngIf="registerForm.get('curp')?.errors?.['required']">El CURP es requerido.</mat-error>
+            <mat-error *ngIf="registerForm.get('curp')?.errors?.['invalidCurp']">El CURP no tiene un formato válido.</mat-error>
+          </mat-form-field>
+          <button mat-raised-button color="primary" class="validate-button" (click)="validateCurp()">Validar</button>
+        </div>
+        <p>
+            <mat-form-field>
+              <input type="text" formControlName="estado" matInput placeholder="Estado" >
+            </mat-form-field>
+          </p> 
+          <p>
+            <mat-form-field>
+              <input type="text" formControlName="location" matInput placeholder="Localidad">
+            </mat-form-field>
+          </p> 
+        <p>
+          <mat-form-field>
+            <input type="number" formControlName="section" matInput placeholder="Sección">
+          </mat-form-field>
+        </p> 
+        <p>
+          <mat-form-field>
+            <input type="text" formControlName="email" matInput placeholder="Email">
+          </mat-form-field>
+        </p> 
+        <p>
+          <mat-form-field>
+            <input type="password" formControlName="password" matInput placeholder="Password">
+          </mat-form-field>   
+        </p>
+        <div>
+          <button type="submit" [disabled]="!registerForm.valid" mat-flat-button color="primary">Crear cuenta</button>
+        </div>
+      </form>
+    </mat-card-content>
+  </mat-card>
+  

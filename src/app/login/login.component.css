@@ -1,0 +1,46 @@
+:host {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Ajusta la altura para centrar verticalmente */
+    margin: 0;
+}
+
+mat-card {
+    width: 600px; /* Aumenta el ancho según tus necesidades */
+    padding: 40px;
+    position: relative; /* Necesario para que el botón "Crear cuenta" se posicione absolutamente dentro del mat-card */
+}
+
+.mat-form-field {
+    width: 100%;
+    min-width: 300px;
+}
+
+mat-card-title,
+mat-card-content {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center; /* Centra el contenido verticalmente */
+}
+
+.create-account-button {
+    position: absolute;
+    top: 10px; /* Ajusta según sea necesario */
+    right: 10px; /* Ajusta según sea necesario */
+    background-color: green;
+    color: white; /* Ajusta el color del texto si es necesario */
+}
+
+.create-account-button:hover {
+    background-color: darkgreen; /* Color al pasar el cursor */
+    color: white;
+}
+
+.error {
+    padding: 16px;
+    width: 300px;
+    color: white;
+    background-color: red;
+}

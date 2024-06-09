@@ -1,0 +1,13 @@
+<div class="boleta">
+    <button mat-raised-button color="warn" class="logout-button" (click)="logout()">LogOut</button>
+    <div class="candidatos-grid">
+      <app-candidato
+        *ngFor="let candidato of candidatos"
+        [candidato]="candidato"
+        [isSelected]="selectedCandidato === candidato"
+        (selected)="onCandidatoSelected(candidato)"
+      ></app-candidato>
+    </div>
+    <button mat-raised-button color="primary" class="vote-button" (click)="votar()">VOTAR</button>
+  </div>
+  
