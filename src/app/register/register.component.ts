@@ -6,6 +6,8 @@ import { ApiCurpService } from '../services/api-curp.service';
 import { CurpValidationService } from '../services/curp-validation.service';
 import { state } from '@angular/animations';
 import { InegiApiService } from '../services/inegi-api.service';
+import { ApiUser } from '../services/APIBASE/apiUser/apiUser.service';
+import { RegisterPerson } from '../Models/CreatePerson';
 
 @Component({
   selector: 'app-register',
@@ -26,8 +28,7 @@ export class RegisterComponent implements OnInit {
     private router: Router,
     private formBuilder: FormBuilder,
     public snackBar: MatSnackBar,
-    private curpValidationService: CurpValidationService,
-    private inegiService: InegiApiService
+    public apiUser: ApiUser,
   ) {
     this.registerForm = this.formBuilder.group({
       section: [{value: '', disabled: true}, Validators.required],
@@ -49,7 +50,23 @@ export class RegisterComponent implements OnInit {
   }
 
   register(){
+    const personnData: RegisterPerson = {
+      curp: this.registerForm.value.curp || null,
+      email: this.registerForm.value.email || null,
+      password: this.registerForm.value.password || null,
+      state: this.registerForm.value.estado || null,
+      location: this.registerForm.value.location || null,
+      section: this.registerForm.value.section || null
+    };
+  this.apiUser.registerPerson(personnData).subscribe(response => {
+      if (response.success === true) {
+          this.snackBar.open('Persona guardado exitosamente', '',{
+              duration: 2000
+          });
 
+          this.router.navigate(['/login']);
+      }
+  })
   }
 
   validateCurp(){

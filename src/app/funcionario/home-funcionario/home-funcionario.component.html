@@ -1,1 +1,9 @@
-<p>home-funcionario works!</p>
+<div>
+  <h1>Home Funcionario Component</h1>
+  <button mat-raised-button color="warn" class="logout-button" (click)="logOut()">LogOut</button>
+  <button (click)="fileInput.click()" style="position: absolute; top: 10px; right: 10px;" mat-raised-button color="primary">
+    Subir acta
+  </button>
+  <input type="file" accept="application/pdf" style="display: none;" (change)="onFileSelected($event)" #fileInput>
+  <app-grafica-pastel></app-grafica-pastel>
+</div>

@@ -1,5 +1,6 @@
+<!-- candidato.component.html -->
 <div class="candidato" [class.selected]="isSelected" (click)="select()">
-    <img [src]="candidato.photo" alt="{{ candidato.name }}">
-    <h3>{{ candidato.name }}</h3>
-    <p>{{ candidato.team }}</p>
-  </div>
+  <img *ngIf="imageUrl" [src]="imageUrl" alt="{{ candidato.name }}">
+  <h3>{{ candidato.applicant }}</h3>
+  <p>{{ candidato.name }}</p>
+</div>

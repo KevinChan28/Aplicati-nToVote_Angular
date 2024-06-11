@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { FormGroup, FormControl, FormBuilder, Validators } from '@angular/forms';
 import { Login } from '../Models/Login';
+import { ApiAuthService } from '../services/APIBASE/apiUser/api-auth.service';
 
 @Component({
   selector: 'app-login',
@@ -16,12 +17,12 @@ export class LoginComponent implements OnInit {
     password: ['', Validators.required]
    });
 
-constructor(/*public apiAuth: ApiAuthService*/ private router: Router, private formBuilder: FormBuilder, 
+constructor(public apiAuth: ApiAuthService, private router: Router, private formBuilder: FormBuilder, 
     public snackBar: MatSnackBar )
 {
-  /*if(this.apiAuth.usuarioData){
+  if(this.apiAuth.usuarioData){
         this.router.navigate(['/'])
-    }*/
+    }
 }
 
 ngOnInit() {
@@ -30,25 +31,35 @@ ngOnInit() {
  
 login(){
     const loginData: Login = {
-        email: this.loginForm.value.email || null,
+      EmailOrCurp: this.loginForm.value.email || null,
         password: this.loginForm.value.password || null
       };
-   /* this.apiAuth.login(loginData).subscribe(response => {
+   this.apiAuth.login(loginData).subscribe(response => {
 
-        if (response.exito === false) {
-            this.snackBar.open(response.mensaje,'',{
-                duration: 3000
+        if (response.success === false) {
+            this.snackBar.open(response.message,'',{
+                duration: 5000
             });
+            console.log(response.message);
         }
-        if (response.exito === true){
-            this.router.navigate(['/']);
-            this.snackBar.open(response.mensaje,'',{
+        if (response.success === true){
+            this.snackBar.open(response.message,'',{
                 duration: 2000
             });
-        } 
-    });*/
-        this.router.navigate(['/homeUser']);
-      
+              console.log(response.data.rol);
+
+            if(response.data.rol === 'Persona'){
+                this.router.navigate(['/homeUser']);
+            }
+            if(response.data.rol === 'Funcionario'){
+                this.router.navigate(['/homeFuncionario']);
+            }
+            if (response.data.rol === 'Administrador'){
+                this.router.navigate(['/homeAdmin']);
+            }
+        }
+        
+    }); 
 
 }
 
