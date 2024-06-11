@@ -1,4 +1,4 @@
 export interface Login{
-    email: string | null | undefined;
+    EmailOrCurp: string | null | undefined;
     password: string | null | undefined;
 }

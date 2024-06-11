@@ -1,0 +1,20 @@
+<div>
+  <h1>Home Admin Component</h1>
+  <button mat-raised-button color="warn" class="logout-button" (click)="logOut()">LogOut</button>
+  <button mat-icon-button matTooltip="Crear Funcionario" (click)="openCrearFuncionarioDialog()" style="position: absolute; top: 10px; right: 60px;">
+    <mat-icon>person_add</mat-icon>
+  </button>
+  <button mat-icon-button matTooltip="Crear Partido Político" (click)="openCrearPartidoPoliticoDialog()" style="position: absolute; top: 10px; right: 10px;">
+    <mat-icon>group_add</mat-icon>
+  </button>
+  <app-grafica-admin></app-grafica-admin>
+  
+  <h2>Actas de casillas</h2>
+  <ul>
+    <li *ngFor="let document of documents">
+      <a (click)="downloadDocument(document)" style="cursor: pointer; text-decoration: underline;">
+        {{ document.section }} - {{ document.id }}
+      </a>
+    </li>
+  </ul>
+</div>

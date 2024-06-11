@@ -1,0 +1,24 @@
+<h1 mat-dialog-title>Crear Partido Político</h1>
+<div mat-dialog-content>
+  <form [formGroup]="partyForm" (ngSubmit)="onSubmit()">
+    <mat-form-field>
+      <mat-label>Candidato</mat-label>
+      <input matInput formControlName="candidato" required>
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Name</mat-label>
+      <input matInput formControlName="name" required>
+    </mat-form-field>
+
+    <div>
+      <label for="fileInput">Image</label>
+      <input type="file" id="fileInput" (change)="onFileSelected($event)" required>
+    </div>
+
+    <div mat-dialog-actions>
+      <button mat-button type="button" (click)="onCancel()">Cancel</button>
+      <button mat-button type="submit" [disabled]="partyForm.invalid || !selectedFile">Create</button>
+    </div>
+  </form>
+</div>

@@ -1,24 +1,23 @@
-  import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
-  import { PlotlyService } from 'angular-plotly.js';
+import { Component } from '@angular/core';
 import { ApiVoteSercice } from 'src/app/services/APIBASE/apiVote/apiVote.service';
 
-  @Component({
-    selector: 'app-grafica-pastel',
-    templateUrl: './grafica-pastel.component.html',
-    styleUrls: ['./grafica-pastel.component.css']
-  })
-  export class GraficaPastelComponent  {
-    public graph: { data: any[], layout: any };
+@Component({
+  selector: 'app-grafica-admin',
+  templateUrl: './grafica-admin.component.html',
+  styleUrl: './grafica-admin.component.css'
+})
+export class GraficaAdminComponent {
+  public graph: { data: any[], layout: any };
 
     constructor(private apiVoteService: ApiVoteSercice) {
       this.graph = {
         data: [],
-        layout: { width: 800, height: 600, title: 'Total de votos en tu casilla' }
+        layout: { width: 800, height: 600, title: 'Total de votos' }
       };
     }
   
     ngOnInit() {
-      this.apiVoteService.getVotesGraphic().subscribe(
+      this.apiVoteService.getVotesGraphicAdmin().subscribe(
         (response) => {
           if (response.success) {
             const data = response.data;
@@ -39,4 +38,4 @@ import { ApiVoteSercice } from 'src/app/services/APIBASE/apiVote/apiVote.service
         }
       );
     }
-  }
+}

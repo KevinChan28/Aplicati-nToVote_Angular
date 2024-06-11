@@ -3,6 +3,7 @@
    
     <mat-card-content> 
       <button mat-raised-button class="green-button create-account-button" (click)="goLogin()">Volver</button>
+      <button mat-raised-button color="primary" class="validate-button" (click)="validateCurp()">Validar CURP</button>
       <form [formGroup]="registerForm" (ngSubmit)="register()">
         <div class="form-row">
           <mat-form-field >
@@ -10,7 +11,7 @@
             <mat-error *ngIf="registerForm.get('curp')?.errors?.['required']">El CURP es requerido.</mat-error>
             <mat-error *ngIf="registerForm.get('curp')?.errors?.['invalidCurp']">El CURP no tiene un formato válido.</mat-error>
           </mat-form-field>
-          <button mat-raised-button color="primary" class="validate-button" (click)="validateCurp()">Validar</button>
+         
         </div>
         <p>
             <mat-form-field>
@@ -24,7 +25,7 @@
           </p> 
         <p>
           <mat-form-field>
-            <input type="number" formControlName="section" matInput placeholder="Sección">
+            <input type="text" formControlName="section" matInput placeholder="Sección">
           </mat-form-field>
         </p> 
         <p>

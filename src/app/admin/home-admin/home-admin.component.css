@@ -1,0 +1,26 @@
+/* Estilos generales del componente */
+
+:host {
+    display: block;
+    padding: 20px;
+  }
+  
+  h1 {
+    margin-bottom: 20px;
+  }
+  
+  .logout-button {
+    position: absolute;
+    top: 700px;
+    right: 10px;
+  }
+  
+  /* Estilo para los tooltips */
+  .mat-tooltip {
+    font-size: 12px; /* Tamaño de fuente */
+    background-color: rgba(0, 0, 0, 0.8); /* Color de fondo */
+    color: white; /* Color de texto */
+    border-radius: 4px; /* Borde redondeado */
+    padding: 8px 12px; /* Espaciado interior */
+  }
+  

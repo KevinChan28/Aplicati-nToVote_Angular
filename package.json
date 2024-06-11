@@ -21,12 +21,13 @@
     "@angular/platform-browser": "^18.0.2",
     "@angular/platform-browser-dynamic": "^18.0.2",
     "@angular/router": "^18.0.2",
+    "@microsoft/signalr": "^8.0.0",
     "angular-plotly.js": "^5.2.2",
     "plotly.js": "^2.33.0",
     "plotly.js-dist-min": "^2.33.0",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0",
-    "zone.js": "~0.14.7"
+    "zone.js": "~0.14.7"  
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "^18.0.3",
